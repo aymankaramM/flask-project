@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workout Plans</title>
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <!-- Main heading -->
+    <h1>Workout Categories</h1>
+    <p>Below is a list of various workouts for different body parts, designed to target specific areas of your body.</p>
+    
+    <!-- Unordered list of workout categories -->
+    <ul>
+        {% for category in categories.keys() %}
+        <li><a href="{{ url_for('workout_category', category=category) }}">{{ category.capitalize() }}</a></li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Adding the table here -->
+    <table>
+        <tr>
+            <th>Workout Type</th>
+            <th>Benefits</th>
+            <th>Recommended Frequency</th>
+        </tr>
+        <tr>
+            <td>Chest</td>
+            <td>Strengthens upper body</td>
+            <td>2-3 times per week</td>
+        </tr>
+        <tr>
+            <td>Back</td>
+            <td>Improves posture</td>
+            <td>2-3 times per week</td>
+        </tr>
+        <tr>
+            <td>Legs</td>
+            <td>Builds lower body muscles</td>
+            <td>2 times per week</td>
+        </tr>
+        <tr>
+            <td>Arms</td>
+            <td>Enhances arm definition</td>
+            <td>2 times per week</td>
+        </tr>
+    </table>
+    
+    <!-- Additional headings and a paragraph with external links -->
+    <h2>Learn More About Fitness</h2>
+    <p>For more information on maintaining a healthy lifestyle, visit these resources:</p>
+    <!-- Ordered list with external links -->
+    <ol>
+        <li><a href="https://www.healthline.com/nutrition/fitness-exercises" target="_blank">Healthline: Fitness Exercises</a></li>
+        <li><a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/exercise/art-20048389" target="_blank">Mayo Clinic: Exercise</a></li>
+        <li><a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank">WHO: Physical Activity</a></li>
+    </ol>
+    
+    <!-- Displaying the current date and time -->
+    <h2>Current Date and Time</h2>
+    <p>{{ date_time }}</p>
+    
+    <h3>Stay Motivated!</h3>
+    <p>Remember, consistency is key to achieving your fitness goals. Keep pushing yourself, and don't forget to enjoy the journey!</p>
+</body>
+</html>

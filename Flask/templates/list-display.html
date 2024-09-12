@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ category }} Workout Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <h1>{{ category }} Workout Plan</h1>
+    {% if items %}
+    <ul class="exercise-list">
+        {% for item in items %}
+        <li>
+            <a href="{{ item.url }}" target="_blank">{{ item.name }}</a>
+            <!-- Example image for each item -->
+            <img src="{{ url_for('static', filename='images/exercise_default.jpg') }}" alt="{{ item.name }}">
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No exercises found for this category.</p>
+    {% endif %}
+    <!-- Additional images outside the list -->
+    <div class="additional-images">
+        <img src="https://www.makeoverfitness.com/images/stories/chest-charts1.jpg" alt="Image 1">
+        <img src="https://m.media-amazon.com/images/I/71E85OXQ+GL._AC_SL1000_.jpg" alt="Image 2">
+        <img src="https://m.media-amazon.com/images/I/71xRRnnQcuL._AC_SL1000_.jpg" alt="Image 3">
+        <img src="https://fitnessprogramer.com/wp-content/uploads/2023/01/4-best-arm-workout.png" alt="Image 4">
+    </div>
+</body>
+</html>
